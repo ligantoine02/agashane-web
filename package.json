@@ -6,30 +6,34 @@
   },
   "engines-annotation": "Mostly required by sharp which needs a Node-API v9 compatible runtime",
   "private": true,
-  "trustedDependencies": [
-    "esbuild",
-    "sharp"
-  ],
+  "trustedDependencies": ["esbuild", "sharp"],
   "trustedDependencies-annotation": "Needed for bun to allow running install scripts",
   "type": "module",
   "scripts": {
     "build": "qwik build",
     "build.client": "vite build",
     "build.preview": "vite build --ssr src/entry.preview.tsx",
+    "build.server": "vite build -c adapters/cloudflare-pages/vite.config.ts",
     "build.types": "tsc --incremental --noEmit",
-    "deploy": "echo 'Run \"npm run qwik add\" to install a server adapter'",
+    "deploy": "wrangler pages deploy ./dist",
     "dev": "vite --mode ssr",
+    "dev.panda": "vite --mode ssr && panda --watch",
     "dev.debug": "node --inspect-brk ./node_modules/vite/bin/vite.js --mode ssr --force",
     "fmt": "prettier --write .",
     "fmt.check": "prettier --check .",
     "lint": "eslint \"src/**/*.ts*\"",
+    "prebuild.pandacss": "panda codegen --silent",
     "preview": "qwik build preview && vite preview --open",
+    "serve": "wrangler pages dev ./dist --compatibility-flags=nodejs_als",
     "start": "vite --open --mode ssr",
-    "qwik": "qwik"
+    "qwik": "qwik",
+    "prepare": "panda condegen"
   },
   "devDependencies": {
     "@builder.io/qwik": "^1.5.4",
     "@builder.io/qwik-city": "^1.5.4",
+    "@builder.io/vite-plugin-macro": "~0.0.7",
+    "@pandacss/dev": "^0.36.1",
     "@types/eslint": "^8.56.10",
     "@types/node": "^20.12.7",
     "@typescript-eslint/eslint-plugin": "^7.7.1",
@@ -40,6 +44,14 @@
     "typescript": "5.4.5",
     "undici": "*",
     "vite": "^5.2.10",
-    "vite-tsconfig-paths": "^4.2.1"
+    "vite-tsconfig-paths": "^4.2.1",
+    "wrangler": "^3.0.0"
+  },
+  "dependencies": {
+    "@fontsource-variable/chivo-mono": "^5.0.21",
+    "@fontsource-variable/darker-grotesque": "^5.0.5",
+    "@fontsource/space-mono": "^5.0.20",
+    "@pandacss/preset-panda": "^0.39.1",
+    "@qwikest/icons": "^0.0.13"
   }
 }
