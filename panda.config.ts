@@ -1,6 +1,8 @@
 import { defineConfig } from "@pandacss/dev";
 import pandaPreset from "@pandacss/preset-panda";
 
+import { textStyles } from "~/styles/text-styles";
+
 export default defineConfig({
 	jsxFramework: "qwik",
 
@@ -16,11 +18,16 @@ export default defineConfig({
 	// Useful for theme customization
 	theme: {
 		extend: {
+			textStyles,
 			tokens: {
 				fonts: {
 					darkerGrotesque: { value: "var(--font-darker-grotesque)" },
 					chivoMono: { value: "var(--font-chivo-mono)" },
 					spaceMono: { value: "var(--font-space-mono)" },
+					body: {
+						value:
+							"var(--font-space-mono), var(--font-darker-grotesque), sans-serif",
+					},
 				},
 			},
 		},

@@ -11,3 +11,7 @@
   --font-chivo-mono: 'Chivo Mono Variable', monospace;
   --font-space-mono: 'Space Mono', monospace;
 }
+
+body {
+  font-family: "Darker Grotesque Variable", sans-serif;
+}

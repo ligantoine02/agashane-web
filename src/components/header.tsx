@@ -3,13 +3,7 @@ import { css } from "~/styled-system/css";
 
 export const Header = component$(() => {
 	return (
-		<h2
-			class={css({
-				fontFamily: "spaceMono",
-				fontSize: "2xl",
-				color: "cyan.700",
-			})}
-		>
+		<h2 class={css({ textStyle: "body" })}>
 			This is the header with an awesome grouup
 		</h2>
 	);
