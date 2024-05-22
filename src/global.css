@@ -4,12 +4,12 @@
  */
 @layer reset, base, tokens, recipes, utilities;
 
-@import '@fontsource-variable/darker-grotesque';
+@import "@fontsource-variable/darker-grotesque";
 
 :root {
-  --font-darker-grotesque: 'Darker Grotesque Variable', sans-serif;
-  --font-chivo-mono: 'Chivo Mono Variable', monospace;
-  --font-space-mono: 'Space Mono', monospace;
+  --font-darker-grotesque: "Darker Grotesque Variable", sans-serif;
+  --font-chivo-mono: "Chivo Mono Variable", monospace;
+  --font-space-mono: "Space Mono", monospace;
 }
 
 body {
