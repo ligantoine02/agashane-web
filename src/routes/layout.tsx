@@ -3,10 +3,11 @@ import type { RequestHandler } from "@builder.io/qwik-city";
 import "@fontsource-variable/darker-grotesque";
 import "@fontsource-variable/chivo-mono";
 
+import { Box, Container } from "~/styled-system/jsx";
 import "~/styled-system/styles.css";
 
-import { Footer } from "~/components/footer";
-import { Header } from "~/components/header";
+import { Footer } from "~/partials/footer";
+import { Header } from "~/partials/header";
 
 export const onGet: RequestHandler = async ({ cacheControl }) => {
 	// Control caching for this request for best performance and to reduce hosting costs:
@@ -21,10 +22,12 @@ export const onGet: RequestHandler = async ({ cacheControl }) => {
 
 export default component$(() => {
 	return (
-		<>
-			<Header />
-			<Slot />
-			<Footer />
-		</>
+		<Box w="full" minH="100vh" bg="indigo.2">
+			<Container>
+				<Header />
+				<Slot />
+				<Footer />
+			</Container>
+		</Box>
 	);
 });

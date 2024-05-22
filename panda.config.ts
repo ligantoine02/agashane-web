@@ -1,5 +1,7 @@
 import { defineConfig } from "@pandacss/dev";
 import pandaPreset from "@pandacss/preset-panda";
+import typographyPreset from "pandacss-preset-typography";
+import radixColorsPreset from "pandacss-preset-radix-colors";
 
 import { textStyles } from "~/styles/text-styles";
 
@@ -36,5 +38,5 @@ export default defineConfig({
 	// The output directory for your css system
 	outdir: "src/styled-system",
 
-	presets: [pandaPreset],
+	presets: [radixColorsPreset(), typographyPreset(), pandaPreset],
 });
