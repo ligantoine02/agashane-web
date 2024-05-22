@@ -1,5 +1,0 @@
-name = "agashane"
-pages_build_output_dir = "./dist"
-
-[vars]
-BUN_VERSION = " 1.1.8"
